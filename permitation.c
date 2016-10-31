@@ -1,24 +1,24 @@
 #include <stdio.h>
 
-int result = 1;
+char * swtch(char word [],int x,int y){
+    char * newstring = word;
+    newstring[x] = newstring[y];
+    newstring[y] = word[x];
+    return newstring;   
+}
 
-int faktoriyel(int size){
-    if(size <1){
-        return result;
+void permute(char word [], int place){
+    if(place == sizeof(*word)-1){
+        printf("%s",word);
     }
-    else{
-        result = result*size;
-        size = size -1;
-        return  faktoriyel(size);
+    for(int nextchar = place; nextchar<sizeof(*word);nextchar++){
+        permute(swtch(word,place,nextchar),place+1);
     }
 }
 
-int main(){
-    char word [4];
-    
-    printf("Write any word: ");
-    scanf("%s",word);
-    printf("%d",faktoriyel(sizeof(word)));    
-    for(int i = 0;i<sizeof(word);i++){        
-    }
+int main(int argc,char* argv[]){    
+
+   if(!(argc!=2)){
+      permute(argv[1],0);       
+   }
 }
