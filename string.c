@@ -1,19 +1,27 @@
-
-
-
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
 int main(int argc , char * argv[]){
-    int sum;
-    int i;
-    int k;
+    char * str;
+    int i ;
     
-    #ifdef ADD
-    sum  = i*k;
+    i = (int)calloc
+    str = (char *) malloc(1);
     
-    #else
-    sum = i+k;
+    if(str == NULL){
+        printf("Failed to get or allocate memory\n");
+    }
     
-    #endif
+    strcpy(str,"Am i improving?");
     
+    printf("str : %s\n",str);
+    
+    str =  realloc(str,0);
+    
+    printf("str: %s\n",str);
+    
+    free(str);
+        
     return 0 ;
 }
